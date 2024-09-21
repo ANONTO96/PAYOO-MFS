@@ -2,8 +2,13 @@ document.getElementById('btn-cashout').addEventListener('click',function(event){
 event.preventDefault();
 const cashOut = getInputFieldValueById('input-cashout');
 const pinNumber = getInputFieldValueById('input-cashout-pin-number');
-if(pinNumber !== NaN){
+// validation
+if(!isNaN(cashOut) && !isNaN(pinNumber)){
 const balance = getTextFieldValueById('account-balance');
+if(cashOut > balance){
+    alert('Your do not have enough balance to cash out');
+    return;
+}
 const newBalance = balance - cashOut;
 document.getElementById('account-balance').innerText = newBalance;
 alert('cashed out seccessfully');

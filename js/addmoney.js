@@ -2,7 +2,8 @@ document.getElementById('btn-add-money').addEventListener('click',function(event
     event.preventDefault();
 const addMoney = getInputFieldValueById('input-add-money');
 const pinNumber= getInputFieldValueById('input-pin-number');
-if(pinNumber !== NaN){
+// validation
+if(!isNaN(addMoney) && !isNaN(pinNumber)){
 const balance = getTextFieldValueById('account-balance');
 const newBalance = balance + addMoney;
 document.getElementById('account-balance').innerText = newBalance;
@@ -19,6 +20,6 @@ div.innerHTML =
 document.getElementById('transaction-container').appendChild(div)
 }
 else {
-    alert('Wrong pin or amount');
+    alert('Wrong amount or pin');
 }
 })

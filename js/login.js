@@ -12,7 +12,7 @@ const pinNumber = document.getElementById('pin-number').value;
 console.log(phoneNumber, pinNumber)
 
 // validate phone and pin
-if(phoneNumber === '8' && pinNumber === '1234'){
+if(!isNaN(phoneNumber) && !isNaN(pinNumber)){
     window.location.href = './home.html';
     alert('Successfully Logged IN');
 }
